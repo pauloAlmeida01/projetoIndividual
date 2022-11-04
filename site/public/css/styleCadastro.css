@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    
+}
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/imgs/hipcolor.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+
+}
+
+.container .form-cadastro {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.form-cadastro .title-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    background-color: white;
+}
+.title-form h1 {
+    font-size: 30px;
+    height: fit-content;
+    width: fit-content;
+    color: #000;
+}
+
+.form-cadastro .divInp {
+    width: 80%;
+    height: 10%;
+    border: 2px solid black;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divInp input {
+    border:none;
+    width: 94%;
+    height: 80%;
+}
+.divInp button {
+    border: none;
+    width: 100%;
+    height: 90%;
+    color: #000;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.divInp input:focus {
+    outline: none;  
+}
+
+.divInp button {
+    
+}
