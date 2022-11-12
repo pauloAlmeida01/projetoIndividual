@@ -90,12 +90,11 @@ body {
     width: 0;
     height: 2px;
     background: #000;
-    transition: width .3s;
+    transition:.5s;
 }
 
 .nav ul a:hover::after {
     width: 100%;
-
 }
 
 .header .login {
@@ -115,11 +114,12 @@ body {
     border: 1px solid #333;
     padding: 10px;
     color: black;
+    transition: .8s;
 }
 .login a:hover {
     background-color: #333;
     color: #fff;
-    transition: .8s;
+    
     cursor: pointer;
 }
 
@@ -248,11 +248,12 @@ body {
     margin: 10px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     color: black;
+    transition: 1s;
 }
 
 .pilares:hover {
     transform: scale(1.05);
-    transition: 1s;
+    
     background-color: #000;
     color: #fff;
 }
@@ -295,10 +296,15 @@ body {
     margin: 0;
 }
 .galeria .imagem {
-    border: 1px solid green;
     height: 300px;
     width: 40%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition-duration: 1s;
 }
+.imagem:hover {
+    transform: scale(1.1);
+}
+
 .footer {
     height: 130px;
     width: 100%;

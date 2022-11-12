@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/funcoes.js"></script>
+    <link rel="stylesheet" href="../css/styleQuiz.css">
+    <title>Dashboard - Quiz</title>
+</head>
+<body onload="rendQuest(0)">  
+    <div class="container">
+        <header class="header" >
+          <div class="logo">
+            <a href="#home"><h1 class="gradient">Hip Hop</h1></a>
+          </div>
+          <navbar class="nav">
+            <ul>
+              <a href="#home"><li>Inicio</li></a>
+            </ul>
+          </navbar>
+          <div class="login">
+            <a href="#">Sair</a>
+          </div>
+        </header>
+
+        <section class="quiz">
+            <div class="title">
+                <h1>Quiz Hip Hop</h1>
+            </div>
+
+            <div class="contQuiz">
+                <div class="pergunta" id="pergunta">
+                    <h1 id="h1Pergunta">1. Qual o nome do primeiro álbum do grupo NWA?</h1>
+                    <span>10 Pontos</span>
+                </div>
+                <ol type="A">
+                    <li class="resp" value="a" id="a" onclick="acertou(this, this)">A</li>
+                    <li class="resp" value="b" id="b" onclick="acertou(this, this)">A</li>
+                    <li class="resp" value="c" id="c" onclick="acertou(this, this)">A</li>
+                    <li class="resp" value="d" id="d" onclick="acertou(this, this)">A</li>
+                </ol>
+                <div class="pontos">
+                    <h1 id="pontos">Pontos: 0</h1>
+                </div>
+            </div>
+
+            
+        </section>
+        
+    </div>
+</body>
+</html>
+
+<script src="../js/quiz.js"></script>
