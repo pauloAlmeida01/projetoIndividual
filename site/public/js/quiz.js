@@ -151,18 +151,21 @@ function acertou(numQuest, resposta) {
     console.log("Resp Escolhida"+ respEscolhida)
     var certa = quest[numeroQuestao].correta
     console.log("resposta certa "+ certa)
+    var questAtual = document.getElementById("questaoAtual")
 
     if(respEscolhida == quest[index].correta) {
         console.log('certo')
         animacao.classList.add("certa")
         pontosQ += 10
         questoesPassadas++
+        questAtual.innerHTML = `${questoesPassadas}/5`
         console.log(questoesPassadas)
     } else {
         console.log('errado')
         animacao.classList.add("errada")
         questoesPassadas++
         console.log(questoesPassadas)
+        questAtual.innerHTML = `${questoesPassadas}/5`
     }
     pontos = document.getElementById("pontos")
     // placar

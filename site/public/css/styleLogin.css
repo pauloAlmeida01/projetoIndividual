@@ -68,6 +68,38 @@ body {
     border-radius: 5px;
 }
 
+.formInp span {
+    font-size: 0.8rem;
+    color: #000;
+}
+.formInp span a {
+    text-decoration: none;
+    color: green;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.formInp span a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition:.5s;
+
+
+}
+
+.formInp span a:hover::after {
+    width: 100%;
+
+}
+
+.formInp span a:hover {
+    color: red;
+    transition: .5s;
+}
+
 
 .formInp input::placeholder {
     color: #555;
