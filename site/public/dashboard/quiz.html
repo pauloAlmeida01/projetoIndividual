@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/styleQuiz.css">
     <title>Dashboard - Quiz</title>
 </head>
-<body onload="rendQuest(0)">  
+<body>  
     <div class="container">
         <header class="header" >
           <div class="logo">
@@ -25,11 +25,16 @@
         </header>
 
         <section class="quiz">
+          
             <div class="title">
                 <h1>Quiz Hip Hop</h1>
             </div>
 
-            <div class="contQuiz">
+            <div class="divBtn" id="divBtn">
+              <button class="btnIniciar" onclick="rendQuest(0)">Iniciar</button>
+            </div>
+            <div class="contQuiz aniQuiz" id="contQuiz">
+              
                 <div class="pergunta" id="pergunta">
                     <h1 id="h1Pergunta">1. Qual o nome do primeiro álbum do grupo NWA?</h1>
                     <span>10 Pontos</span>

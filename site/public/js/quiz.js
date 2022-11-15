@@ -11,7 +11,7 @@ var d = document.getElementById("d");
 
 
 const q1 = {
-    pergunta: "Qual o meu album de RAP favorito?",
+    pergunta: "Qual o meu álbum de RAP favorito?",
     altA: "Ready to Die",
     altB: "Astroworld",
     altC: "Rap é Compromisso",
@@ -52,30 +52,86 @@ const q5 = {
     altD: "Rakim",
     correta: "DJ Africa Bambaataa"
 }
+const q6 = {
+    pergunta: "Em que ano o Hip-Hop foi criado?",
+    altA: "1975",
+    altB: "1973",
+    altC: "1970",
+    altD: "1971",
+    correta: "1970"
+}
+const q7 = {
+    pergunta: "Qual pessoa fundou o Hip-hop?",
+    altA: "DJ Africa Bambaataa",
+    altB: "Tupac",
+    altC: "Mano Brown",
+    altD: "Rakim",
+    correta: "DJ Africa Bambaataa"
+}
+const q8 = {
+    pergunta: "Qual pessoa fundou o Hip-hop?",
+    altA: "DJ Africa Bambaataa",
+    altB: "Tupac",
+    altC: "Mano Brown",
+    altD: "Rakim",
+    correta: "DJ Africa Bambaataa"
+}
+const q9 = {
+    pergunta: "Qual pessoa fundou o Hip-hop?",
+    altA: "DJ Africa Bambaataa",
+    altB: "Tupac",
+    altC: "Mano Brown",
+    altD: "Rakim",
+    correta: "DJ Africa Bambaataa"
+}
+const q10 = {
+    pergunta: "Qual pessoa fundou o Hip-hop?",
+    altA: "DJ Africa Bambaataa",
+    altB: "Tupac",
+    altC: "Mano Brown",
+    altD: "Rakim",
+    correta: "DJ Africa Bambaataa"
+}
 
-const quest = [q1, q2, q3, q4, q5];
+
+const quest = [q1, q2, q3, q4, q5,q6];
 
 var questaoQuiz = 0
 var questoesPassadas = 0
 var indice = 0
 var vt_indice = []
+var i = 0
+var index = 0
+
 
 function rendQuest(numQuest) {
-    indice =  Math.floor(Math.random() * quest.length);
-    while(vt_indice.includes(indice)) {
-        indice =  Math.floor(Math.random() * quest.length);
-    }   
+    button = document.getElementById("divBtn")
+    button.style.display = "none"
+    divQuiz = document.getElementById("contQuiz") 
+    divQuiz.style.display = "flex"
+
+
+    for(i = 0; ; i++) {
+        indice = Math.floor(Math.random() * quest.length)
+        if(vt_indice.indexOf(indice) == -1) {
+            vt_indice.push(indice)
+            index = indice
+            console.log("index: " + index)
+            break
+        }else {
+            
+        }
+    }
 
     
-    console.log("Indice: " +indice)
     //console.log("Vetor" + quest[indice])
 
-
-    h1Pergunta.innerHTML = quest[indice].pergunta;
-    a.innerHTML = quest[indice].altA;
-    b.innerHTML = quest[indice].altB;
-    c.innerHTML = quest[indice].altC;
-    d.innerHTML = quest[indice].altD;
+    console.log("Questão: " + index)
+    h1Pergunta.innerHTML = quest[index].pergunta;
+    a.innerHTML = quest[index].altA;
+    b.innerHTML = quest[index].altB;
+    c.innerHTML = quest[index].altC;
+    d.innerHTML = quest[index].altD;
     a.setAttribute('value', numQuest + 'A')
     b.setAttribute('value', numQuest + 'B')
     c.setAttribute('value', numQuest + 'C')
@@ -84,27 +140,27 @@ function rendQuest(numQuest) {
 
 }
 
-function bloquear() {
-    
-}
+
 
 function acertou(numQuest, resposta) {
+    animacao = document.getElementById("contQuiz") 
+    animacao.classList.remove("aniQuiz")
     var numeroQuestao = numQuest.value
     console.log("Numero questão: " + numeroQuestao)
     var respEscolhida = resposta.textContent
     console.log("Resp Escolhida"+ respEscolhida)
-
     var certa = quest[numeroQuestao].correta
     console.log("resposta certa "+ certa)
-    if(respEscolhida == quest[indice].correta) {
+
+    if(respEscolhida == quest[index].correta) {
         console.log('certo')
-        alert("Correta")
+        animacao.classList.add("certa")
         pontosQ += 10
         questoesPassadas++
         console.log(questoesPassadas)
     } else {
         console.log('errado')
-        alert("Errada")
+        animacao.classList.add("errada")
         questoesPassadas++
         console.log(questoesPassadas)
     }
@@ -112,14 +168,24 @@ function acertou(numQuest, resposta) {
     // placar
     pontos.innerHTML = "Pontos: " + pontosQ
 
-
-    setTimeout(function() {
-
+    
+    setTimeout(() => { 
+        
         if(questoesPassadas >= 5) {
             console.log('fim')
-            
+
+            contQuiz.innerHTML = `<p class="fim"> Fim de jogo!! </p>
+            <p class="pontosFim"> Você fez ${pontosQ} pontos </p>
+            <button onclick="location.reload()" class="btn"> Jogar novamente </button>
+            <button onclick="" class="btn"> Ver ranking </button>`
+
         }else {
+            animacao.classList.remove("certa")
+            animacao.classList.remove("errada")
             rendQuest(questoesPassadas)
         }
-    },250)
+    }, 1700)
+
 }
+
+
