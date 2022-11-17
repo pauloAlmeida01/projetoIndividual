@@ -181,14 +181,36 @@ function acertou(numQuest, resposta) {
             <p class="pontosFim"> Você fez ${pontosQ} pontos </p>
             <button onclick="location.reload()" class="btn"> Jogar novamente </button>
             <button onclick="" class="btn"> Ver ranking </button>`
-
+            cadastrar()
         }else {
             animacao.classList.remove("certa")
             animacao.classList.remove("errada")
             rendQuest(questoesPassadas)
         }
     }, 1700)
+    
+    
 
+}
+
+function cadastrar() {
+    console.log("cadastrar")
+
+    fetch(`/rotaQuiz/quizCadastrar`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuario: sessionStorage.ID_USUARIO,
+            pontos: pontosQ
+        })
+    }).then((response) => {
+        console.log("Resp QUIZ: ", response)
+
+    }).catch((error) => {[
+        console.log("Erro: " + error)
+    ]})
 }
 
 
