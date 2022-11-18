@@ -158,7 +158,6 @@ html .container {
     height: 100%;
     width: 60%;
     display: none;
-    border: 3px solid black;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
@@ -182,7 +181,7 @@ html .container {
 
 @keyframes certa {
     90% {
-
+        
         opacity: 1;
         transform: scale(1.1);
     }
@@ -209,10 +208,12 @@ html .container {
 
 .certa {
     animation: certa 1.5s;
+    border: 3px solid rgb(37, 228, 37);
 }
 
 .errada {
     animation: errada 1.5s;
+    border: 3px solid red;
 }
 
 .quiz .divBtn {
