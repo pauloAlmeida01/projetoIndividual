@@ -356,7 +356,7 @@ html .container {
     flex-direction: column;
 }
 .contQuiz .btn {
-    height: 15%;
+    height: 20%;
     width: 30%;
     display: flex;
     justify-content: center;
@@ -374,4 +374,84 @@ html .container {
 .contQuiz .btn:hover {
     background-color: #000;
     color: white;
+}
+
+.h1Rank {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    height: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+.tableRank {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+
+}
+
+.tableRank tbody {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.tableRank tr {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin: 0;
+    
+
+
+}
+
+.tableRank .tr1 {
+    border: 2px solid black;
+}
+
+
+.tableRank tr th {
+    height: 100%;
+    width: 25%;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.tableRank tr td {
+    height: 100%;
+    width: 25%;
+    margin: 0;
+    font-size: 1.1rem;
+    color: #000;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 }

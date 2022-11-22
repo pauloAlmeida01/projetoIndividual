@@ -179,7 +179,7 @@ function acertou(numQuest, resposta) {
 
             contQuiz.innerHTML = `<p class="fim"> Fim de jogo!! </p>
             <p class="pontosFim"> Você fez ${pontosQ} pontos </p>
-            <button onclick="location.reload()" class="btn"> Jogar novamente </button>
+            <button onclick="rendRank()" class="btn"> Jogar novamente </button>
             <button onclick="rank()" class="btn"> Ver ranking </button>`
             sessionStorage.PONTOS = pontosQ
             cadastrar()
@@ -231,6 +231,47 @@ function rank() {
         console.log("Erro: " + error)
     ]})
 
+}
+
+function rendRank() {
+    var divQuiz = document.getElementById("contQuiz")
+    divQuiz.style.display = "flex"
+
+    divQuiz.innerHTML = `<h1 class="h1Rank"> Ranking </h1>
+
+    <table class="tableRank">
+    <tbody>
+        <tr class="tr1">
+            <th> Posição </th>
+            <th> Nome </th>
+            <th> Pontos </th>
+        </tr>
+        <tr class="tr2">
+            <td> 1 </td>
+            <td> ${sessionStorage.NOME} </td>
+            <td> ${sessionStorage.PONTOS} </td>
+        </tr>
+        <tr class="tr2">
+            <td> 1 </td>
+            <td> ${sessionStorage.NOME} </td>
+            <td> ${sessionStorage.PONTOS} </td>
+        </tr>
+        <tr class="tr2">
+            <td> 1 </td>
+            <td> ${sessionStorage.NOME} </td>
+            <td> ${sessionStorage.PONTOS} </td>
+        </tr>
+        <tr class="tr2">
+            <td> 1 </td>
+            <td> ${sessionStorage.NOME} </td>
+            <td> ${sessionStorage.PONTOS} </td>
+        </tr>
+        </tbody>
+    </table>
+    <button onclick="location.reload()" class="btn"> Jogar novamente </button>
+
+
+    `
 }
 
 
