@@ -56,7 +56,7 @@ function verify(req, res) {
             }
             else{
                 console.log("INSERT")
-                if(resultado2.length <= 0) {
+                
                 quizModel.insertRank(idUsuario,idQuiz,pontos)
                 .then(
                     function(resultado4) {
@@ -67,9 +67,7 @@ function verify(req, res) {
                     console.log(erro);
                     console.log("Houve um erro ao realizar o insert! Erro: ", erro.sqlMessage);
                 });
-            }else {
-                console.log("Não insere")
-            }
+            
             
 
 

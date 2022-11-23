@@ -179,7 +179,7 @@ function acertou(numQuest, resposta) {
 
             contQuiz.innerHTML = `<p class="fim"> Fim de jogo!! </p>
             <p class="pontosFim"> Você fez ${pontosQ} pontos </p>
-            <button onclick="rank()" class="btn"> Jogar novamente </button>
+            <button onclick="window.reload()" class="btn"> Jogar novamente </button>
             <button onclick="rendRank()" class="btn"> Ver ranking </button>`
             cadastrar()
         }else {
@@ -210,6 +210,10 @@ function cadastrar() {
     }).catch((error) => {[
         console.log("Erro: " + error)
     ]})
+    
+    setTimeout(()=> {
+        rank()
+    },2000)
 }
 
 function rank() {
@@ -229,9 +233,9 @@ function rank() {
     ).catch((error) => {[
         console.log("Erro: " + error)
     ]})
-
 }
 var vtdados= []
+
 function rendRank() {
 
     var divQuiz = document.getElementById("contQuiz")
