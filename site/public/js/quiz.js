@@ -179,9 +179,8 @@ function acertou(numQuest, resposta) {
 
             contQuiz.innerHTML = `<p class="fim"> Fim de jogo!! </p>
             <p class="pontosFim"> Você fez ${pontosQ} pontos </p>
-            <button onclick="rendRank()" class="btn"> Jogar novamente </button>
-            <button onclick="rank()" class="btn"> Ver ranking </button>`
-            sessionStorage.PONTOS = pontosQ
+            <button onclick="rank()" class="btn"> Jogar novamente </button>
+            <button onclick="rendRank()" class="btn"> Ver ranking </button>`
             cadastrar()
         }else {
             animacao.classList.remove("certa")
@@ -226,17 +225,52 @@ function rank() {
     }).then((response) => {
         console.log("Resp VERIFY: ", response)
 
-    }
+    }  
     ).catch((error) => {[
         console.log("Erro: " + error)
     ]})
 
 }
-
+var vtdados= []
 function rendRank() {
+
     var divQuiz = document.getElementById("contQuiz")
     divQuiz.style.display = "flex"
+    
 
+    fetch(`/rotaQuiz/dados`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuario: sessionStorage.ID_USUARIO,
+            pontoss: pontosQ
+        })
+    }).then((response) => {
+        console.log("Resp DADOS: ", response)
+
+        if(response.ok) {
+            response.json().then((data) => {
+                console.log("Data: ", data)
+                    console.log("Data: ", data[0])
+                    sessionStorage.USERID = data[0].fkUsuario
+                    sessionStorage.P = data[0].pontos
+
+                    sessionStorage.USERID2 = data[1].fkUsuario
+                    sessionStorage.P2 = data[1].pontos
+
+                    
+
+
+                
+            })
+        }
+    }
+    ).catch((error) => {[
+        console.log("Erro: " + error)
+    ]})
+    console.log("Vt dados2: ", vtdados)
     divQuiz.innerHTML = `<h1 class="h1Rank"> Ranking </h1>
 
     <table class="tableRank">
@@ -247,24 +281,24 @@ function rendRank() {
             <th> Pontos </th>
         </tr>
         <tr class="tr2">
-            <td> 1 </td>
-            <td> ${sessionStorage.NOME} </td>
-            <td> ${sessionStorage.PONTOS} </td>
+            <td> ${sessionStorage.USERID} </td>
+            <td> ${sessionStorage.NOME_USUARIO} </td>
+            <td> ${sessionStorage.P} </td>
         </tr>
         <tr class="tr2">
-            <td> 1 </td>
-            <td> ${sessionStorage.NOME} </td>
-            <td> ${sessionStorage.PONTOS} </td>
+            <td> ${sessionStorage.USERID2} </td>
+            <td> ${sessionStorage.NOME_USUARIO} </td>
+            <td> ${sessionStorage.P2} </td>
         </tr>
         <tr class="tr2">
-            <td> 1 </td>
-            <td> ${sessionStorage.NOME} </td>
-            <td> ${sessionStorage.PONTOS} </td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr class="tr2">
-            <td> 1 </td>
-            <td> ${sessionStorage.NOME} </td>
-            <td> ${sessionStorage.PONTOS} </td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         </tbody>
     </table>

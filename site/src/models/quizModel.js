@@ -36,10 +36,18 @@ function upRank (id,idQuiz,pontos) {
     return database.executar(instrucao);
 }
 
+function slcDados() {
+    console.log("NO MODEL")
+    var instrucao = `select * from quiz join rankQuiz on quiz.id = rankQuiz.fkQuiz order by rankQuiz.pontos DESC limit 4;`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     quiz,
     verificar,
     insertRank,
     upRank,
-    pegarIdQuiz
+    pegarIdQuiz,
+    slcDados
 }

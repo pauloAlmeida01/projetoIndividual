@@ -87,7 +87,24 @@ function verify(req, res) {
 
 }
 
+function dados(req, res) {
+    var pontos = req.body.pontos;
+    var idUsuario = req.body.idUsuario;
+
+    quizModel.slcDados(idUsuario,pontos)
+    .then(
+        function(resultado) {
+            res.json(resultado);
+    }
+    ).catch(function(erro) {
+        console.log(erro);
+        console.log("Houve um erro para recuperar os dados", erro.sqlMessage);
+    });
+
+}
+
 module.exports = {
     quiz,
-    verify
+    verify,
+    dados
 }
