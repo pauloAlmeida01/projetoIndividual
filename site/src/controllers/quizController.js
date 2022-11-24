@@ -37,17 +37,17 @@ function verify(req, res) {
 
     quizModel.verificar(idUsuario,pontos)
     .then(
-        function(resultado2) {
-            res.json(resultado2);
-            console.log("Resultado do verificar ",resultado2)
-            console.log("TAMANHO",resultado2.length)
-            if(resultado2.length > 0){
+        function(resultado) {
+            res.json(resultado);
+            console.log("Resultado do verificar ",resultado)
+            console.log("TAMANHO",resultado.length)
+            if(resultado.length > 0){
                 console.log("UPDATE")
                 quizModel.upRank(idUsuario,idQuiz,pontos)
                 .then(
-                    function(resultado3) {
-                        console.log("RESULTADO UPDATE ",resultado3)
-                        res.json(resultado3);
+                    function(resultado) {
+                        console.log("RESULTADO UPDATE ",resultado)
+                        res.json(resultado);
                 }
                 ).catch(function(erro) {
                     console.log(erro);
@@ -59,9 +59,9 @@ function verify(req, res) {
                 
                 quizModel.insertRank(idUsuario,idQuiz,pontos)
                 .then(
-                    function(resultado4) {
-                        console.log("RESULTADO INSERT ",resultado4)
-                        res.json(resultado4);
+                    function(resultado) {
+                        console.log("RESULTADO INSERT ",resultado)
+                        res.json(resultado);
                 }
                 ).catch(function(erro) {
                     console.log(erro);

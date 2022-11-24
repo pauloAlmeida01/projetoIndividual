@@ -38,7 +38,7 @@
 
       <div class="banner">
         <div>
-        <p>Lorem Ipsum</p>
+        <p>Paulo Roberto</p>
       </div>
       </div>
 
@@ -113,23 +113,30 @@
 
       <section class="galeria" id="galeria">
         <div class="h1">
-        <h1>Galeria do RAP</h1>
+        <h1>Galeria do Hip-Hop</h1>
       </div>
-        <div class="imagem">
+        <div class="imagem imgum" id="img">
 
         </div>
+        
 
-        <div class="imagem">
+        <div class="imagem imgdo" id="img">
           
         </div>
 
-        <div class="imagem">
+        <div class="imagem imgtr" id="img">
           
         </div>
 
-        <div class="imagem">
+        <div class="imagem imgqt" id="img">
           
         </div>
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01">
+          <div id="caption"></div>
+        </div>
+        
       </section>
 
       <footer class="footer">
@@ -138,3 +145,26 @@
     </div>
   </body>
 </html>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById("img");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = './assets/imgs/gh1.png';
+    captionText.innerHTML = this.alt;
+  }
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+  </script>

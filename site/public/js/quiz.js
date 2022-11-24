@@ -48,9 +48,9 @@ const q5 = {
     pergunta: "Qual pessoa fundou o Hip-hop?",
     altA: "DJ Africa Bambaataa",
     altB: "Tupac",
-    altC: "Mano Brown",
+    altC: "DJ Kool Herc",
     altD: "Rakim",
-    correta: "DJ Africa Bambaataa"
+    correta: "DJ Kool Herc"
 }
 const q6 = {
     pergunta: "Em que ano o Hip-Hop foi criado?",
@@ -258,23 +258,19 @@ function rendRank() {
             response.json().then((data) => {
                 console.log("Data: ", data)
                     console.log("Data: ", data[0])
-                    sessionStorage.USERID = data[0].fkUsuario
+                    sessionStorage.USERID = data[0].nome
                     sessionStorage.P = data[0].pontos
 
-                    sessionStorage.USERID2 = data[1].fkUsuario
+                    sessionStorage.USERID2 = data[1].nome
                     sessionStorage.P2 = data[1].pontos
 
-                    
+                    var u1 = sessionStorage.USERID
+                    var p1 = sessionStorage.P
+                    var u2 = sessionStorage.USERID2
+                    var p2 = sessionStorage.P2
 
 
-                
-            })
-        }
-    }
-    ).catch((error) => {[
-        console.log("Erro: " + error)
-    ]})
-    console.log("Vt dados2: ", vtdados)
+                    console.log("Vt dados2: ", vtdados)
     divQuiz.innerHTML = `<h1 class="h1Rank"> Ranking </h1>
 
     <table class="tableRank">
@@ -285,31 +281,39 @@ function rendRank() {
             <th> Pontos </th>
         </tr>
         <tr class="tr2">
-            <td> ${sessionStorage.USERID} </td>
-            <td> ${sessionStorage.NOME_USUARIO} </td>
-            <td> ${sessionStorage.P} </td>
+            <td> 1 </td>
+            <td> ${u1} </td>
+            <td> ${p1} </td>
         </tr>
         <tr class="tr2">
-            <td> ${sessionStorage.USERID2} </td>
-            <td> ${sessionStorage.NOME_USUARIO} </td>
-            <td> ${sessionStorage.P2} </td>
+            <td> 2 </td>
+            <td> ${u2} </td>
+            <td> ${p2} </td>
         </tr>
         <tr class="tr2">
-            <td></td>
+            <td>  </td>
             <td></td>
             <td></td>
         </tr>
         <tr class="tr2">
-            <td></td>
+            <td> </td>
             <td></td>
             <td></td>
         </tr>
         </tbody>
     </table>
-    <button onclick="location.reload()" class="btn"> Jogar novamente </button>
+    <button onclick="location.reload()" class="btn"> Jogar novamente </button>`
 
+                
+            })
+        }
+    }
+    ).catch((error) => {[
+        console.log("Erro: " + error)
+    ]})
+    
 
-    `
 }
+
 
 
