@@ -19,23 +19,30 @@ function quiz(req, res) {
 
 }
 var idQuiz = 0
+var idQuizAntigo = 0
+
 function verify(req, res) { 
     var pontos = req.body.pontos;
     var idUsuario = req.body.idUsuario;
-
+    var aux = false
+    
     quizModel.pegarIdQuiz(idUsuario,pontos)
     .then(
         function(resultado) {
             console.log("RESULTADO PEGARID ",resultado)
             idQuiz = resultado[0].id;
+            idQuizAntigo = resultado[1].id
             console.log("IDQUIZ ", idQuiz)
+            console.log("IDQUIZANTIGO", idQuizAntigo)
+            aux = true
+            console.log(aux)
         } 
     ).catch(function(erro) {
         console.log(erro);
         console.log("Houve um erro ao realizar o cadastro! Erro: ", erro.sqlMessage);
     });
 
-    quizModel.verificar(idUsuario,pontos)
+    quizModel.verificar(idUsuario,idQuiz)
     .then(
         function(resultado) {
             res.json(resultado);
@@ -43,7 +50,7 @@ function verify(req, res) {
             console.log("TAMANHO",resultado.length)
             if(resultado.length > 0){
                 console.log("UPDATE")
-                quizModel.upRank(idUsuario,idQuiz,pontos)
+                quizModel.upRank(idUsuario,idQuiz,idQuizAntigo,pontos)
                 .then(
                     function(resultado) {
                         console.log("RESULTADO UPDATE ",resultado)
@@ -77,6 +84,7 @@ function verify(req, res) {
         console.log("Houve um erro ao realizar o cadastro! Erro: ", erro.sqlMessage);
     }
     );
+
 
         
 

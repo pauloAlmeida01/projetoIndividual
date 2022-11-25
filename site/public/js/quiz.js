@@ -213,7 +213,7 @@ function cadastrar() {
     
     setTimeout(()=> {
         rank()
-    },2000)
+    },1000)
 }
 
 function rank() {
@@ -261,8 +261,8 @@ function rendRank() {
                     sessionStorage.USERID = data[0].nome
                     sessionStorage.P = data[0].pontos
 
-                    sessionStorage.USERID2 = data[1].nome
-                    sessionStorage.P2 = data[1].pontos
+                    // sessionStorage.USERID2 = data[1].nome
+                    // sessionStorage.P2 = data[1].pontos
 
                     var u1 = sessionStorage.USERID
                     var p1 = sessionStorage.P
