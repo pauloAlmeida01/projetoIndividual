@@ -129,7 +129,7 @@ body {
 
 .container .banner {
     width: 100%;
-    height: 517px;
+    height: 85vh;
     background-image: url(https://pbs.twimg.com/media/FhqwUsFagAEM_20?format=jpg&name=medium);
     background-size: cover;
     background-repeat: no-repeat;
@@ -298,34 +298,9 @@ body {
     cursor: pointer;
 }
 
-.galeria .imgum {
-    background-image: url(../assets/imgs/gh1.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-}
-.galeria .imgdo {
-    background-image: url(../assets/imgs/gh2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-}
-
-.galeria .imgtr {
-    background-image: url(../assets/imgs/gh3.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
-}
-.galeria .imgqt {
-    background-image: url(../assets/imgs/gh4.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-
+.imagem .img {
+    height: 100%;
+    width: 100%;
 }
 
 .imagem:hover {

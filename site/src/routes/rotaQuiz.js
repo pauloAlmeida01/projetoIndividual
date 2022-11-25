@@ -11,7 +11,7 @@ router.post("/verify", function (req, res) {
     quizController.verify(req, res);
 })
 
-router.post("/dados", function (req, res) {
+router.get("/dados", function (req, res) {
     quizController.dados(req, res);
 })
 

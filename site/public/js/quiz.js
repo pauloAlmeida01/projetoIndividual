@@ -105,6 +105,7 @@ var index = 0
 
 
 function rendQuest(numQuest) {
+    desbloquear()
     button = document.getElementById("divBtn")
     button.style.display = "none"
     divQuiz = document.getElementById("contQuiz") 
@@ -140,6 +141,16 @@ function rendQuest(numQuest) {
 
 }
 
+function bloquear() {
+    var ol = document.getElementById('olQuiz')
+    ol.style.pointerEvents = 'none'
+}
+
+function desbloquear() {
+    var ol = document.getElementById('olQuiz')
+    ol.style.pointerEvents = 'auto'
+}
+
 
 
 function acertou(numQuest, resposta) {
@@ -160,12 +171,14 @@ function acertou(numQuest, resposta) {
         questoesPassadas++
         questAtual.innerHTML = `${questoesPassadas}/5`
         console.log(questoesPassadas)
+        bloquear()
     } else {
         console.log('errado')
         animacao.classList.add("errada")
         questoesPassadas++
         console.log(questoesPassadas)
         questAtual.innerHTML = `${questoesPassadas}/5`
+        bloquear()
     }
     pontos = document.getElementById("pontos")
     // placar
@@ -175,14 +188,15 @@ function acertou(numQuest, resposta) {
     setTimeout(() => { 
         
         if(questoesPassadas >= 5) {
+            
             console.log('fim')
-
             contQuiz.innerHTML = `<p class="fim"> Fim de jogo!! </p>
             <p class="pontosFim"> Você fez ${pontosQ} pontos </p>
-            <button onclick="window.reload()" class="btn"> Jogar novamente </button>
+            <button onclick="location.reload()" class="btn"> Jogar novamente </button>
             <button onclick="rendRank()" class="btn"> Ver ranking </button>`
             cadastrar()
         }else {
+            
             animacao.classList.remove("certa")
             animacao.classList.remove("errada")
             rendQuest(questoesPassadas)
@@ -242,16 +256,7 @@ function rendRank() {
     divQuiz.style.display = "flex"
     
 
-    fetch(`/rotaQuiz/dados`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            idUsuario: sessionStorage.ID_USUARIO,
-            pontoss: pontosQ
-        })
-    }).then((response) => {
+    fetch(`/rotaQuiz/dados`).then(response => {
         console.log("Resp DADOS: ", response)
 
         if(response.ok) {
@@ -261,8 +266,8 @@ function rendRank() {
                     sessionStorage.USERID = data[0].nome
                     sessionStorage.P = data[0].pontos
 
-                    // sessionStorage.USERID2 = data[1].nome
-                    // sessionStorage.P2 = data[1].pontos
+                    sessionStorage.USERID2 = data[1].nome
+                    sessionStorage.P2 = data[1].pontos
 
                     var u1 = sessionStorage.USERID
                     var p1 = sessionStorage.P
@@ -308,12 +313,13 @@ function rendRank() {
             })
         }
     }
-    ).catch((error) => {[
+    ).catch(function (error) {
         console.log("Erro: " + error)
-    ]})
+    });
     
 
 }
+
 
 
 

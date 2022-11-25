@@ -14,7 +14,7 @@ html {
 
 }
 body {
-    background-color: #560d7f;
+    background-color: #20221B;
     width: 100%;
     height: 100%;
     display: flex;
@@ -30,7 +30,7 @@ body {
     justify-content: space-around;
     border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-color: #a130ff;
+    background-color: #4C4F40;
 }
 
 .container .img  {
@@ -52,11 +52,11 @@ body {
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
-    background-color: #560d7f;
+    background-color: #20221B;
 }
 .form h1 {
-    font-size: 1.5rem;
-    color: yellow;
+    font-size: 1.7rem;
+    color: white;
     font-weight: bold;
     margin-bottom: 10px;
     margin-top: 15px;
@@ -85,22 +85,22 @@ body {
     border: none;
     border-radius: 5px;
     padding: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #fff;
     background-color: #fff;
-    background-color: #a130ff;
+    background-color: #4C4F40;
     transition: 1s;
 }
 
 .inpDiv input::placeholder {
-    color: #ddd;
-    font-size: 14px;
+    color: #aaa;
+    font-size: 16px;
 
 }
 
 .inpDiv input:focus {
     outline: none;
-    box-shadow: 5px 5px 20px rgb(255, 255, 0,0.8);
+    box-shadow: 0px 0px 10px rgb(255, 255, 0,0.9);
 
 }
 
@@ -120,7 +120,7 @@ body {
 
 .inpDiv button:hover {
     background-color: #fff;
-    color: #560d7f;
+    color: black;
 }
 
 
