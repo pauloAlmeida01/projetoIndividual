@@ -10,14 +10,14 @@ function quiz(id,pontos) {
 
 function pegarIdQuiz(id,pontos) {
     console.log("NO MODEL")
-    var instrucao = `select * from quiz where fkUsuario = ${id} and pontos <= ${pontos} order by pontos DESC limit 2;`;
+    var instrucao = `select * from quiz where fkUsuario = ${id} and pontos <= ${pontos} order by dtHora DESC limit 2;`;
     console.log("Executando a instrução SQL: PEGAR IDQUIZ \n" + instrucao);
     return database.executar(instrucao);
 }
 
 function verificar(id,fkQuiz) {
     console.log("NO MODEL")
-    var instrucao = `select * from rankQuiz where fkUsuario = ${id} and pontos <= 50 and fkQuiz = ${fkQuiz}`;
+    var instrucao = `select * from rankQuiz where fkUsuario = ${id} and pontos <= 50;`;
     console.log("Executando a instrução SQL: VERIFICAR \n" + instrucao);
     return database.executar(instrucao);
 }
@@ -29,9 +29,9 @@ function insertRank(id,idQuiz,pontos) {
     return database.executar(instrucao);
 }
 
-function upRank (id,idQuiz,idQuizAntigo,pontos) {
+function upRank (id,idQuiz,pontos) {
     console.log("NO MODEL")
-    var instrucao = `update rankQuiz set pontos = ${pontos},fkQuiz = ${idQuiz} where fkUsuario = ${id} and fkQuiz = ${idQuizAntigo} and pontos < ${pontos}`;
+    var instrucao = `update rankQuiz set pontos = ${pontos},fkQuiz = ${idQuiz} where fkUsuario = ${id} and pontos < ${pontos}`;
     console.log("Executando a instrução SQL: UPDATE RANK \n" + instrucao);
     return database.executar(instrucao);
 }

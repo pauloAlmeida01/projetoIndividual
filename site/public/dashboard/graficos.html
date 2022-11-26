@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/styleGraf.css">
     <title>Dashboard - Quiz</title>
 </head>
-<body>  
+<body onload="dadosCards()">  
     <div class="container">
         <header class="header" >
           <div class="logo">
@@ -16,7 +17,7 @@
           </div>
           <navbar class="nav">
             <ul>
-              <a href="#home"><li>Inicio</li></a>
+              <a href="./quiz.html"><li>Inicio</li></a>
             </ul>
             <ul>
               <a href="./graficos.html"><li>Graficos</li></a>
@@ -26,11 +27,214 @@
             <a href="javascript:limparSessao()">Sair</a>
           </div>
         </header>
+        <section class="cardsDados">
+          <div class="card">
+            <div class="card-header">
+              <h1>Usuarios Cadastrados</h1>
+            </div>
+            <div class="card-body">
+              <p id="users"></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h1>Jogadas no Quiz</h1>
+            </div>
+            <div class="card-body">
+              <p id="users2"></p>
+            </div>
+          </div>
+        </section>
 
         <section class="contGraf">
-            <h1>Gráfico do Quiz</h1>
+            <h1>Gráfico de pessoas por pontuação</h1>
+            <div class="grafico">
+              <canvas id="myChart" style="height: 37vh; width:40vw;"></canvas>
+            </div>
+
         </section>
 
 </div>
 </body>
 </html>
+
+<script>
+  
+  
+    function dadosCards () {
+
+
+        var users = document.getElementById('users');
+
+        //FETCH PARA CARD DE USUARIOS
+        fetch(`/graficos/dados`).then(response => {
+            console.log("TELA DOS GRAFICOS ",response)
+
+            if(response.ok) {
+              response.json().then(json => {
+                console.log("TELA DOS GRAFICOS JSON ",json)
+
+                users.innerHTML = json[0].Count;
+
+                
+              })
+            }
+        }).catch(error => {
+            console.log("ERRO ",error)
+        })
+
+
+        //FETCH PARA CARD DE JOGADAS
+        fetch(`/graficos/dados2`).then(response => {
+            console.log("TELA DOS GRAFICOS ",response)
+
+            if(response.ok) {
+              response.json().then(json => {
+                console.log("TELA DOS GRAFICOS JSON ",json)
+
+                users2.innerHTML = json[0].Count;
+
+                
+              })
+            }
+        }).catch(error => {
+            console.log("ERRO ",error)
+        })
+
+        
+        //FETCH PARA GRAFICO
+        fetch(`/graficos/dados3`).then(response => {
+            console.log("TELA DOS GRAFICOS ",response)
+
+            if(response.ok) {
+              response.json().then(json => {
+                console.log("TELA DOS GRAFICOS JSON JSON 50",json)
+                
+                if(json.length <=0) {
+                  sessionStorage.setItem('json50',0)
+                }else {
+                  json50 = json[0].Count
+                  sessionStorage.setItem('json50', json50)
+                }
+    
+              })
+            }
+        }).catch(error => {
+            console.log("ERRO ",error)
+        })
+
+        fetch(`/graficos/dados4`).then(response => {
+            console.log("TELA DOS GRAFICOS ",response)
+
+            if(response.ok) {
+              response.json().then(json => {
+                console.log("TELA DOS GRAFICOS JSON GRAFico 40",json)
+                if(json.length <=0) {
+                  sessionStorage.setItem('json40', 0)
+                }else {
+                  json40 = json[0].Count
+                  sessionStorage.setItem('json40', json40)
+                }
+    
+              })
+            }
+        }).catch(error => {
+            console.log("ERRO ",error)
+        })
+
+        
+
+        fetch(`/graficos/dados5`).then(response => {
+            console.log("TELA DOS GRAFICOS ",response)
+
+            if(response.ok) {
+              response.json().then(json => {
+                console.log("TELA DOS GRAFICOS JSON GRAFico 30",json)
+                if(json.length <=0) {
+                  sessionStorage.setItem('json30', 0)
+                }else {
+                  json30 = json[0].Count
+                  sessionStorage.setItem('json30', json30)
+                }               
+                
+    
+              })
+            }
+        }).catch(error => {
+            console.log("ERRO ",error)
+        })
+
+        fetch(`/graficos/dados6`).then(response => {
+            console.log("TELA DOS GRAFICOS ",response)
+
+            if(response.ok) {
+              response.json().then(json => {
+                console.log("TELA DOS GRAFICOS JSON GRAFico 20",json)
+        
+                if(json.length <=0) {
+                  sessionStorage.setItem('json20', 0)
+                }else {
+                  json20 = json[0].Count
+                  sessionStorage.setItem('json20', json20)
+                }
+              })
+            }
+        }).catch(error => {
+            console.log("ERRO ",error)
+        })
+
+        fetch(`/graficos/dados7`).then(response => {
+            console.log("TELA DOS GRAFICOS ",response)
+
+            if(response.ok) {
+              response.json().then(json => {
+                console.log("TELA DOS GRAFICOS JSON GRAFico 10",json)
+                
+                if(json.length <=0) {
+                  sessionStorage.setItem('json10', 0)
+                }else {
+                  json10 = json[0].Count
+                  sessionStorage.setItem('json10', json10)
+                }
+                
+              })
+            }
+        }).catch(error => {
+            console.log("ERRO ",error)
+        })  
+        
+
+        setTimeout(() => {
+          plotaGraf()
+        }, 500);
+     
+    }
+
+    function plotaGraf() {
+
+      const ctx = document.getElementById('myChart');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['50', '40', '30', '20', '10'],
+      datasets: [{
+        label: 'Pessoas por pontuação',
+        data: [sessionStorage.getItem('json50'), sessionStorage.getItem('json40'), sessionStorage.getItem('json30'), sessionStorage.getItem('json20'), sessionStorage.getItem('json10')],
+        borderWidth: 2
+
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+          
+        }
+      }
+    }
+  });
+    }
+    
+
+</script>

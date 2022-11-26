@@ -50,7 +50,7 @@ function verify(req, res) {
             console.log("TAMANHO",resultado.length)
             if(resultado.length > 0){
                 console.log("UPDATE")
-                quizModel.upRank(idUsuario,idQuiz,idQuizAntigo,pontos)
+                quizModel.upRank(idUsuario,idQuiz,pontos)
                 .then(
                     function(resultado) {
                         console.log("RESULTADO UPDATE ",resultado)

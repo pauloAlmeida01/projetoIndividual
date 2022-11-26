@@ -227,7 +227,7 @@ function cadastrar() {
     
     setTimeout(()=> {
         rank()
-    },1000)
+    },400)
 }
 
 function rank() {
@@ -263,57 +263,25 @@ function rendRank() {
             response.json().then((data) => {
                 console.log("Data: ", data)
                     console.log("Data: ", data[0])
-                    sessionStorage.USERID = data[0].nome
-                    sessionStorage.P = data[0].pontos
 
-                    sessionStorage.USERID2 = data[1].nome
-                    sessionStorage.P2 = data[1].pontos
+                    for(i = 0; i < data.length; i++) {
+                        vtdados.push(data[i])
+                    }
+                    divQuiz.innerHTML = ""
+                    divQuiz.innerHTML = `<h1 class="h1Rank"> Ranking </h1><br>`
+                    for(i = 0; i < vtdados.length; i++) {
+                        
+                        divQuiz.innerHTML += `<p class="pontosFim2">${i+1} -  ${vtdados[i].nome} - ${vtdados[i].pontos} </p>`
+                        
+                    }
+                    divQuiz.innerHTML += `<button onclick="location.reload()" class="btn"> Jogar novamente </button>`
+                }
+            )
 
-                    var u1 = sessionStorage.USERID
-                    var p1 = sessionStorage.P
-                    var u2 = sessionStorage.USERID2
-                    var p2 = sessionStorage.P2
+            }   
 
-
-                    console.log("Vt dados2: ", vtdados)
-    divQuiz.innerHTML = `<h1 class="h1Rank"> Ranking </h1>
-
-    <table class="tableRank">
-    <tbody>
-        <tr class="tr1">
-            <th> Posição </th>
-            <th> Nome </th>
-            <th> Pontos </th>
-        </tr>
-        <tr class="tr2">
-            <td> 1 </td>
-            <td> ${u1} </td>
-            <td> ${p1} </td>
-        </tr>
-        <tr class="tr2">
-            <td> 2 </td>
-            <td> ${u2} </td>
-            <td> ${p2} </td>
-        </tr>
-        <tr class="tr2">
-            <td>  </td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr class="tr2">
-            <td> </td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
-    <button onclick="location.reload()" class="btn"> Jogar novamente </button>`
-
-                
-            })
-        }
-    }
-    ).catch(function (error) {
+    
+            }).catch(function (error) {
         console.log("Erro: " + error)
     });
     
