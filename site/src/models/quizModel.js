@@ -2,7 +2,7 @@ var database = require("../database/config")
 
 function quiz(id,pontos) {
     console.log("NO MODEL")
-    var instrucao = `insert into quiz (fkUsuario,dtHora, pontos) values (${id},current_timestamp, ${pontos})`;
+    var instrucao = `insert into quiz (fkUsuario,dtHora) values (${id},current_timestamp)`;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
     
@@ -10,7 +10,7 @@ function quiz(id,pontos) {
 
 function pegarIdQuiz(id,pontos) {
     console.log("NO MODEL")
-    var instrucao = `select * from quiz where fkUsuario = ${id} and pontos <= ${pontos} order by dtHora DESC limit 2;`;
+    var instrucao = `select * from quiz where fkUsuario = ${id} order by dtHora DESC limit 2;`;
     console.log("Executando a instrução SQL: PEGAR IDQUIZ \n" + instrucao);
     return database.executar(instrucao);
 }
