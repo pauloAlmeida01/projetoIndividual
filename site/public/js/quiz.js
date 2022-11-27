@@ -11,41 +11,41 @@ var d = document.getElementById("d");
 
 
 const q1 = {
-    pergunta: "Qual o meu álbum de RAP favorito?",
-    altA: "Ready to Die",
-    altB: "Astroworld",
-    altC: "Rap é Compromisso",
-    altD: "To Pimp a Butterfly",
-    correta: "Rap é Compromisso"
+    pergunta: "Em qual cidade americana o Hip hop surgiu?",
+    altA: "Nova Iorque",
+    altB: "Chicago",
+    altC: "Miami",
+    altD: "Los Angeles",
+    correta: "Nova Iorque"
 }
 
 const q2 = {
-    pergunta: "Qual o pilar do Hip-hop que eu mais gosto?",
-    altA: "Breakdance",
-    altB: "Rap",
-    altC: "DJing",
-    altD: "Grafite",
-    correta: "Rap"
+    pergunta: "Quais são os 4 pilares do Hip hop?",
+    altA: "Rap, Girias, Breakdance",
+    altB: "Rap, DJing, Breakdance, Grafite",
+    altC: "Rap, DJing, Breakdance,Moda",
+    altD: "Rap e Breakdance",
+    correta: "Rap, DJing, Breakdance, Grafite"
 }
 
 const q3 = {
-    pergunta: "Qual o meu artista de Rap favorito?",
-    altA: "Tupac",
-    altB: "Notorious BIG",
-    altC: "Criolo",
-    altD: "Sabotage",
-    correta: "Sabotage"
+    pergunta: "O que é o Hip Hop?",
+    altA: "Musica popular",
+    altB: "Dança e musica",
+    altC: "Arte urbana",
+    altD: "Movimento Cultural",
+    correta: "Movimento Cultural"
 }
 const q4 = {
-    pergunta: "Qual a minha música favorita?",
-    altA: "Rap é Compromisso",	
-    altB: "Favela vive 1",
-    altC: "Favela vive 2",
-    altD: "Juicy",
-    correta: "Juicy"
+    pergunta: "Onde acontecia os eventos de Hip Hop em São Paulo?",
+    altA: "Rua 24 de maio",	
+    altB: "Praça da Sé",
+    altC: "Rua 24 de maio e Metrô São Bento",
+    altD: "Estação da Luz",
+    correta: "Rua 24 de maio e Metrô São Bento"
 }
 const q5 = {
-    pergunta: "Qual pessoa fundou o Hip-hop?",
+    pergunta: "Quem fundou o Hip-hop?",
     altA: "DJ Africa Bambaataa",
     altB: "Tupac",
     altC: "DJ Kool Herc",
@@ -58,43 +58,28 @@ const q6 = {
     altB: "1973",
     altC: "1970",
     altD: "1971",
-    correta: "1970"
+    correta: "1973"
 }
 const q7 = {
-    pergunta: "Qual pessoa fundou o Hip-hop?",
+    pergunta: "Quem deu origem a ONG Zulu Nation?",
     altA: "DJ Africa Bambaataa",
-    altB: "Tupac",
-    altC: "Mano Brown",
-    altD: "Rakim",
+    altB: "Dj Kool Herc",
+    altC: "Grandmaster Flash",
+    altD: "NWA",
     correta: "DJ Africa Bambaataa"
 }
 const q8 = {
-    pergunta: "Qual pessoa fundou o Hip-hop?",
-    altA: "DJ Africa Bambaataa",
-    altB: "Tupac",
-    altC: "Mano Brown",
-    altD: "Rakim",
-    correta: "DJ Africa Bambaataa"
-}
-const q9 = {
-    pergunta: "Qual pessoa fundou o Hip-hop?",
-    altA: "DJ Africa Bambaataa",
-    altB: "Tupac",
-    altC: "Mano Brown",
-    altD: "Rakim",
-    correta: "DJ Africa Bambaataa"
-}
-const q10 = {
-    pergunta: "Qual pessoa fundou o Hip-hop?",
-    altA: "DJ Africa Bambaataa",
-    altB: "Tupac",
-    altC: "Mano Brown",
-    altD: "Rakim",
-    correta: "DJ Africa Bambaataa"
+    pergunta: "Qual cidade é o berço do Hip Hop no Brasil?",
+    altA: "Rio de Janeiro",
+    altB: "Minas Gerais",
+    altC: "Bahia",
+    altD: "São Paulo",
+    correta: "São Paulo"
 }
 
 
-const quest = [q1, q2, q3, q4, q5,q6];
+
+const quest = [q1, q2, q3, q4, q5,q6,q7,q8];
 
 var questaoQuiz = 0
 var questoesPassadas = 0

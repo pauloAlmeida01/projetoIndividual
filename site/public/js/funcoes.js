@@ -35,7 +35,9 @@ function finalizarAguardar(texto) {
     divAguardar.style.display = "none";
 
     var divErrosLogin = document.getElementById("div_erros_login");
+    divErrosLogin.innerHTML = "";
     if (texto) {
+        
         divErrosLogin.innerHTML = texto;
     }
 }

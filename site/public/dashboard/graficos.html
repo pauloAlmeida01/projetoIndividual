@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/funcoes.js"></script>
+    <link rel="icon" href="../assets/icon/hip.png" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/styleGraf.css">
-    <title>Dashboard - Quiz</title>
+    <title>Dashboard - Graficos</title>
 </head>
 <body onload="dadosCards()">  
     <div class="container">
@@ -221,8 +222,9 @@
       datasets: [{
         label: 'Pessoas por pontuação',
         data: [sessionStorage.getItem('json50'), sessionStorage.getItem('json40'), sessionStorage.getItem('json30'), sessionStorage.getItem('json20'), sessionStorage.getItem('json10')],
-        borderWidth: 2
-
+        borderWidth: 2,
+        backgroundColor: 'rgba(255, 0, 0, 0.5)',
+        borderColor: 'rgb(255, 0, 0)',
       }]
     },
     options: {
