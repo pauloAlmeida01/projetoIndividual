@@ -46,7 +46,7 @@ const q4 = {
 }
 const q5 = {
     pergunta: "Quem fundou o Hip-hop?",
-    altA: "DJ Africa Bambaataa",
+    altA: "DJ Afrika Bambaataa",
     altB: "Tupac",
     altC: "DJ Kool Herc",
     altD: "Rakim",
